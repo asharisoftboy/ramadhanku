@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RamadhanKu - Pribadi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+<aside class="sidebar">
+    <h3><i class="fas fa-layer-group"></i> Menu</h3>
+    <a href="#beranda">Beranda</a>
+    <a href="#progress">Progress</a>
+    <a href="#juz">Juz</a>
+    <a href="#catatan">Catatan</a>
+    <a href="#jadwal">Jadwal</a>
+</aside>
+
+    <!-- Background Elements -->
+    <div class="bg-moon"></div>
+    <div class="bg-stars" id="stars"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-moon"></i>
+                <span>RamadhanKu</span>
+            </div>
+            <nav class="nav">
+                <a href="#beranda" class="nav-link active">Beranda</a>
+                <a href="#juz" class="nav-link">Juz</a>
+                <a href="#progress" class="nav-link">Progress</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Countdown -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="hero-content">
+                <div class="greeting">
+                    <span class="greeting-icon">🌙</span>
+                    <p class="greeting-text" id="greetingText">Selamat Datang</p>
+                </div>
+                <h1 class="hero-title">
+                    <span class="arabic">رمضان كريم</span>
+                    <span class="latin">Ramadhan Kareem</span>
+                </h1>
+                <p class="hero-subtitle">Mari sempurnakan ibadah membaca Al-Qur'an bulan ini</p>
+                
+                <!-- Countdown Card -->
+                <div class="countdown-card">
+                    <div class="countdown-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Menuju Idul Fitri</span>
+                    </div>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Hari</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Jam</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Menit</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Detik</span>
+                        </div>
+                    </div>
+                    <div class="countdown-date" id="idulFitriDate">1 Syawal 1447 H</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Overview -->
+    <section class="progress-section" id="progress">
+        <div class="container">
+            <div class="progress-card">
+                <div class="progress-info">
+                    <div class="progress-icon">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
+                    <div class="progress-text">
+                        <h3>Progress Membaca Al-Qur'an</h3>
+                        <p id="progressText">0 dari 30 Juz selesai</p>
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedCount">0</span>
+                        <span class="stat-label">Juz Selesai</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="remainingCount">30</span>
+                        <span class="stat-label">Sisa Juz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Juz Grid Section -->
+    <section class="juz-section" id="juz">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-list-ol"></i>
+                    Daftar Juz Al-Qur'an
+                </h2>
+                <p class="section-subtitle">Klik pada kartu untuk melihat detail dan menandai selesai</p>
+            </div>
+            
+            <div class="juz-grid" id="juzGrid">
+                <!-- Juz cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+    <!-- Catatan Ramadhan -->
+<section class="catatan-section" id="catatan">
+    <div class="container">
+        <h2><i class="fas fa-pen"></i> Catatan Ramadhan</h2>
+        <textarea id="catatanText" placeholder="Tulis target, refleksi, atau muhasabah harian..."></textarea>
+        <button onclick="saveCatatan()">Simpan Catatan</button>
+    </div>
+</section>
+<!-- Jadwal Sholat -->
+<section class="jadwal-section" id="jadwal">
+    <div class="container">
+        <h2><i class="fas fa-clock"></i> Jadwal Sholat Hari Ini</h2>
+        <div class="jadwal-grid">
+            <div class="jadwal-card"><h4>Imsak</h4><span id="imsak">-</span></div>
+            <div class="jadwal-card"><h4>Subuh</h4><span id="subuh">-</span></div>
+            <div class="jadwal-card"><h4>Dzuhur</h4><span id="dzuhur">-</span></div>
+            <div class="jadwal-card"><h4>Ashar</h4><span id="ashar">-</span></div>
+            <div class="jadwal-card"><h4>Maghrib</h4><span id="maghrib">-</span></div>
+            <div class="jadwal-card"><h4>Isya</h4><span id="isya">-</span></div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-moon"></i>
+                    <span>RamadhanKu</span>
+                </div>
+                <p class="footer-text">Semoga Ramadhan kali ini membawa berkah dan keberkahan untuk kita semua.</p>
+                <div class="footer-quote">
+                    <span class="quote-arabic">"إِنَّ مَعَ الْعُسْرِ يُسْرًا"</span>
+                    <span class="quote-latin">"Sesungguhnya bersama kesulitan ada kemudahan."</span>
+                    <span class="quote-source">(QS. Al-Insyirah: 6)</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RamadhanKu - Dibuat dengan <i class="fas fa-heart"></i> untuk ibadah</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reset Confirmation Modal -->
+    <div class="modal" id="resetModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Reset Progress?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Semua data progress akan dihapus. Tindakan ini tidak dapat dibatalkan.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+                <button class="btn btn-danger" onclick="confirmReset()">Ya, Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Progress tersimpan</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
